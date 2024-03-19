@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% load static %}
+
+{% static "course_thumbnails" as baseUrl %}
+    
+<div class="container-fluid">
+
+    
+ 
+    
+
+    <div class="head" >
+        <div class="card my-courses" style="background-color: #20262E;">
+            <h1 style="color: #fff; font-size: 70px; padding: 1% 5%;">Courses</h1>
+        </div>
+    
+    </div>
+    <div class="container">
+        <div class="row">
+          {% for Course in Courses %}
+          <div class="col-sm-12 col-md-6 col-lg-4" style=" padding: 3% 2%;" >
+            <a href="{% url 'desc' Course.id %}" style="color: #20262E;">
+            <div class="card" style="width: 18rem; height: 32rem; border: 2px solid black; padding: 3% 2%;  background-color: #F6F1F1;">
+              <img src="{{ Course.thumbnail.url }}" class="card-img-top" alt="" >
+              <div class="card-body">
+                <strong><h4 class="card-title">{{ Course.title }}</h4></strong>
+              </a>
+                <p class="card-text">{{ Course.description }}</p>
+                <strong><p>₹{{ Course.price }}</p></strong>
+               
+             
+            
+              </div>
+            </div>
+          </div>
+          
+          {% endfor %}
+        </div>
+      </div>
+      
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+    <div class="container card card-body my-3">
+        <form method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+        <h2>Create Course</h2>
+        
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" required id="floatingInput" placeholder="Add Title" name="title">
+            <label for="floatingInput">Title</label>
+        </div>
+
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required name="category">
+            <!-- <option selected>Open this select menu</option> -->
+            <option  selected value="Programming">Programming</option>
+            <option value="Design">Design</option>
+            <option value="Art">Art</option>
+        </select>
+        <!-- Description Input -->
+        <div class="form-floating mb-3">
+            <textarea class="form-control"  required placeholder="Add Description" id="floatingTextarea2"
+                style="height: 100px" name="desc"></textarea>
+            <label for="floatingTextarea2">Description</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Add Description" id="floatingTextarea2"
+                style="height: 100px" required name="whattolearn"></textarea>
+            <label for="floatingTextarea2">What to Learn</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingPassword" required placeholder="Enter price" name="price">
+            <label for="floatingPassword">Price</label>
+        </div>
+
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Add Thumbnail</label>
+            <input class="form-control" type="file" id="formFile" name="thumbnail" required>
+        </div>
+        <div class="mb-3">
+            <!-- <label for="formFile" class="form-label">Add Videos</label> -->
+            <h2>Add Videos</h2>
+            
+        </div>
+       
+        <!-- add -->
+        <div class="mb-3">
+         
+            <input class="form-control" type="file" id="formFile " name="v1" required>
+        </div>
+
+      
+        <div class="mb-3">
+         
+            <input class="form-control" type="file" id="formFile" name="v2" required>
+        </div>
+
+        <div class="mb-3">
+         
+            <input class="form-control" type="file" id="formFile" name="v3" required>
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control" type="file" id="formFile" name="v4" required>
+                
+        </div>
+
+        <div class="mb-3">
+         
+            <input class="form-control" type="file" id="formFile" name="v5" required>
+        </div>
+       
+        
+
+
+<!--  Quiz Section -->
+        <hr>
+        <div class="mb-3">            
+            <h2>Create Quiz</h2>            
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="quizTitle" placeholder="Add Title" name="quizTitle"  required>
+            <label for="floatingInput">Title</label>
+        </div>
+        <!-- <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="points" required placeholder="Enter points" name="points">
+            <label for="floatingPassword">Points</label>
+        </div> -->
+        <hr>
+        <div class="mb-3">
+            <h4>Question 1:</h4>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_1" placeholder="Add Question" name="question_1"  required>
+            <label for="floatingInput">Question 1</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="marks_1" required placeholder="Enter marks" name="marks_1">
+            <label for="floatingPassword">Marks</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_1_correct" placeholder="Answer" name="question_1_correct"  required>
+            <label for="floatingInput">Correct Answer</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_1_incorrect_1" placeholder="Add Answer" name="question_1_incorrect_1"  required>
+            <label for="floatingInput">Incorrect Answer 1</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_1_incorrect_2" placeholder="Add Answer" name="question_1_incorrect_2"  required>
+            <label for="floatingInput">Incorrect Answer 2</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_1_incorrect_3" placeholder="Add Answer" name="question_1_incorrect_3"  required>
+            <label for="floatingInput">Incorrect Answer 3</label>
+        </div>
+        <hr>
+        <div class="mb-3">
+            <h4>Question 2:</h4>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_2" placeholder="Add Question" name="question_2"  required>
+            <label for="floatingInput">Question 2</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="marks_2" required placeholder="Enter marks" name="marks_2">
+            <label for="floatingPassword">Marks</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_2_correct" placeholder="Answer" name="question_2_correct"  required>
+            <label for="floatingInput">Correct Answer</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_2_incorrect_1" placeholder="Add Answer" name="question_2_incorrect_1"  required>
+            <label for="floatingInput">Incorrect Answer 1</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_2_incorrect_2" placeholder="Add Answer" name="question_2_incorrect_2"  required>
+            <label for="floatingInput">Incorrect Answer 2</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_2_incorrect_3" placeholder="Add Answer" name="question_2_incorrect_3"  required>
+            <label for="floatingInput">Incorrect Answer 3</label>
+        </div>
+        <hr>
+        <div class="mb-3">
+            <h4>Question 3:</h4>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_3" placeholder="Add Question" name="question_3"  required>
+            <label for="floatingInput">Question 3</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="marks_3" required placeholder="Enter marks" name="marks_3">
+            <label for="floatingPassword">Marks</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_3_correct" placeholder="Answer" name="question_3_correct"  required>
+            <label for="floatingInput">Correct Answer</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_3_incorrect_1" placeholder="Add Answer" name="question_3_incorrect_1"  required>
+            <label for="floatingInput">Incorrect Answer 1</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_3_incorrect_2" placeholder="Add Answer" name="question_3_incorrect_2"  required>
+            <label for="floatingInput">Incorrect Answer 2</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_3_incorrect_3" placeholder="Add Answer" name="question_3_incorrect_3"  required>
+            <label for="floatingInput">Incorrect Answer 3</label>
+        </div>
+        <hr>
+        <div class="mb-3">
+            <h4>Question 4:</h4>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_4" placeholder="Add Question" name="question_4"  required>
+            <label for="floatingInput">Question 4</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="marks_4" required placeholder="Enter marks" name="marks_4">
+            <label for="floatingPassword">Marks</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_4_correct" placeholder="Answer" name="question_4_correct"  required>
+            <label for="floatingInput">Correct Answer</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_4_incorrect_1" placeholder="Add Answer" name="question_4_incorrect_1"  required>
+            <label for="floatingInput">Incorrect Answer 1</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_4_incorrect_2" placeholder="Add Answer" name="question_4_incorrect_2"  required>
+            <label for="floatingInput">Incorrect Answer 2</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_4_incorrect_3" placeholder="Add Answer" name="question_4_incorrect_3"  required>
+            <label for="floatingInput">Incorrect Answer 3</label>
+        </div>
+        <hr>
+        <div class="mb-3">
+            <h4>Question 5:</h4>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_5" placeholder="Add Question" name="question_5"  required>
+            <label for="floatingInput">Question 5</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="marks_5" required placeholder="Enter marks" name="marks_5">
+            <label for="floatingPassword">Marks</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_5_correct" placeholder="Answer" name="question_5_correct"  required>
+            <label for="floatingInput">Correct Answer</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_5_incorrect_1" placeholder="Add Answer" name="question_5_incorrect_1"  required>
+            <label for="floatingInput">Incorrect Answer 1</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_5_incorrect_2" placeholder="Add Answer" name="question_5_incorrect_2"  required>
+            <label for="floatingInput">Incorrect Answer 2</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="question_5_incorrect_3" placeholder="Add Answer" name="question_5_incorrect_3"  required>
+            <label for="floatingInput">Incorrect Answer 3</label>
+        </div>
+
+        <div class="mb-3">
+         
+            <button type="submit" class="btn btn-dark">Upload</button>
+        </div>
+
+    </form>
+        
+    </div>
+
+   
+    
+
+<!--    
+    <div class="container card card-body my-3">
+        <h2>Add Quiz</h2>
+
+        <div class="mb-3">
+         
+            <button type="button" class="btn btn-dark">Create Quiz</button>
+        </div>
+    </div>
+     -->
+   
+
+
+
+
+
+{% endblock %}

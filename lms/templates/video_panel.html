@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% load static %}
+
+<div class="row">
+  <div class="col-md-3">
+    <h3>Video List</h3>
+    <form method="post" action="{% url 'update_videos' %}">
+      {% csrf_token %}
+    <ul class="list-group pb-3">
+      {% for v in video %}
+        <li class="list-group-item">
+          
+          <!-- {% if v.is_completed %} -->
+          
+          <input type="checkbox" name="video_ids" value="{{ v.id }}" checked>
+          <!-- {% else %} -->
+            <input type="checkbox" name="video_ids" value="{{ v.id }}">
+          <!-- {% endif %} -->
+          <a href="#" onclick="playVideo('{{ v.video.url }}', '{{ v.title }}')" class="video-link">{{ v.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <button type="submit" class="btn btn-primary">Mark as Completed</button>
+    <br>
+    {% if not quiz_completed %}
+    <a href="{% url 'quiz' course.id %}" style="color: #20262E;">Quiz</a>
+    {% endif %}
+    <!-- <a href="{% url 'quiz' course.id %}" style="color: #20262E;">Quiz</a> -->
+    </form>
+  </div>
+  <div class="col-md-9">
+   
+      <div  class="video-container">
+        <h3 id="video-title"></h3>
+        <video
+          id="video-player"
+          class="video-js"
+          controls
+          preload="auto"
+          width="1000"
+          height="500"
+          data-setup="{}"
+        >
+        </video>
+        <br>
+        
+      </div>
+    
+  </div>
+</div>
+
+<script>
+  
+  function playVideo(videoUrl, videoTitle) {
+    var videoPlayer = videojs('video-player');
+    var title = document.getElementById('video-title');
+    title.innerText = videoTitle;
+    videoPlayer.src({src: videoUrl, type: 'video/mp4'});
+    videoPlayer.load();
+    videoPlayer.play();
+  }
+</script>
+
+{% endblock %}

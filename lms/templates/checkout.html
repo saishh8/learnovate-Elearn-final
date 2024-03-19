@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container text-center pd-5 mt-5">
+  <form action="{% url 'payment' %}" method="POST">
+    {% csrf_token %}
+    <script
+      src="https://checkout.razorpay.com/v1/checkout.js"
+      data-key="rzp_test_02ojyOxXeuKp1x"
+      data-amount="{{ order_amount }}"
+      data-currency="{{ order_currency }}"
+      data-order_id="{{ order_id }}"
+      data-name="My E-Learning Platform"
+      data-description="Course Purchase"
+      data-image="https://example.com/your_logo.jpg"
+      data-prefill.name="{{ request.user.username }}"
+      data-prefill.email="{{ request.user.email }}"
+      data-theme.color="#F37254"
+    >
+    </script>
+  </form>
+</div>
+{% endblock %}

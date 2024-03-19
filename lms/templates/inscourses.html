@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    
+<div class="container-fluid">
+
+    
+ 
+    
+
+    <div class="head" >
+        <div class="card my-courses" style="background-color: #20262E;">
+            <h1 style="color: #fff; font-size: 70px; padding: 1% 5%;">Courses</h1>
+        </div>
+    
+    </div>
+    <div class="container">
+        <div class="row">
+          {% for course in courses %}
+          <div class="col-sm-12 col-md-6 col-lg-4" style=" padding: 3% 2%;" >
+            
+            <div class="card" style="width: 18rem; height: 32rem; border: 2px solid black; padding: 3% 2%;">
+              <img src="{{ course.thumbnail.url }}" class="card-img-top" alt="" >
+              <div class="card-body">
+                <strong><h4 class="card-title">{{ course.title }}</h4></strong>
+            
+                <p class="card-text">{{ course.description }}</p>
+                <strong><p>₹{{ course.price }}</p></strong>
+                <h5>Total Enrollment: {{ course.total_enrollment }}</h5>
+                <h5>Total Revenue: ₹{{ course.total_revenue }}</h5>
+              </div>
+            </div>
+          </div>
+          
+          {% endfor %}
+        </div>
+      </div>
+      
+</div>
+
+
+{% endblock %}

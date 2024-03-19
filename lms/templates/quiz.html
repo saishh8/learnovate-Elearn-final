@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div id="app">
+        <div class="container mt-5 pt-5">
+            <div class="col-md-6 mx-auto pb-3" >
+                
+                <h3> Quiz </h3>
+                <hr>
+                <div v-for="question in questions">
+                <p>[[question.question]]  ([[question.marks]] Marks)</p>
+                <div class="form-check" v-for ="answer in question.answers">
+                    <input @change="checkAnswer($event,question.id)" :value="answer.answer" class="form-check-input" type="radio" :name="question.id" :id="'q' + question.id + 'a' + answer.id">
+                    <label class="form-check-label" :for="'q' + question.id + 'a' + answer.id">
+                      [[answer.answer]]
+                    </label>
+                  </div>
+                  
+                  <hr>
+                </div>
+                <form>
+                <button @click="submitQuiz" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data() {
+              return {
+                course:'{{course}}',
+                questions:[]
+              }
+            },
+            methods:{
+                getQuestions(){
+                    var _this = this
+                    fetch(`/api/get-quiz/?course=${_this.course}`)
+                    .then(response => response.json())
+                    .then(result =>{
+                        console.log(result)
+                        _this.questions = result.data
+
+                    })
+
+                },
+                /*checkAnswer(event, id){
+                  console.log(event.target.value, id)
+                },*/
+                submitQuiz(){
+                  let numCorrect = 0
+                  this.questions.forEach(question => {
+                      let isCorrect = false
+                      answers=question.answers
+                      answers.forEach(answer => {
+                          let radioBtn = document.getElementById(`q${question.id}a${answer.id}`)
+                          if (radioBtn.checked && answer.is_correct) {
+                              numCorrect=numCorrect + question.marks
+                              
+                              isCorrect = true
+                          } //else if (radioBtn.checked && !answer.is_correct) {
+                              //isCorrect = true
+                         // }
+                      })
+                      /* if (!isCorrect) {
+                          alert(`You got question ${question.id} wrong.`)
+                      } */
+                  })
+                  alert(`You scored ${numCorrect} marks`)
+
+                  let formData = new FormData()
+                formData.append('score', numCorrect)
+                formData.append('course', this.course)
+                axios.post('/submit-quiz/', formData)
+                    .then(response => {
+                        
+                        window.location.replace('/mycourses')
+                        window.location.replace('/mycourses')
+                    })
+                    .catch(error => {
+                        alert('Error submitting quiz result.')
+                    })
+              },
+                checkAnswer(event,id){
+                    this.questions.map(question =>{
+                        answers=question.answers
+                        for(var i=0;i<answers.length;i++){
+                            if(answers[i].answer == event.target.value){
+                                if(answers[i].is_correct){
+                                    console.log("your answer is correct")
+                                    console.log(question.marks)
+                                }else{
+                                    console.log("incorrect")
+                                }
+                            }
+                        }
+                    })
+                    console.log(event.target.value,id)
+                }
+                
+            },
+            created() {
+                this.getQuestions()
+                console.log("page loaded");
+            },
+          });
+          
+        
+    </script>
+     
+
+{% endblock %}
