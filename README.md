@@ -1,12 +1,10 @@
-![image](https://github.com/saishh8/learnovate-Elearn-final/assets/60099055/eb693a48-d55f-4272-b030-c81b8632544d)Learnovate- An E-Learning Platform
+Learnovate - An E-Learning Platform
 
 Learnovate is an e-learning platform where educators develop and sell courses online. Learners can purchase these courses to access educational content and participate in quizzes to assess their understanding.
 It's a digital space where teaching and learning converge, offering opportunities for knowledge acquisition and skill development in a convenient online format. 
 
 
 ### Prerequisites
-
-What things you need to install the software and how to install them.
 
 - Python 3.x
 - Django
