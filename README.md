@@ -54,11 +54,13 @@ It's a digital space where teaching and learning converge, offering opportunitie
 
 -Course Videos
 
-![image](https://github.com/saishh8/learnovate-Elearn-final/assets/60099055/e7edb9a8-b181-424d-a477-e108811d0525)
+![image](https://github.com/saishh8/learnovate-Elearn-final/assets/60099055/8e4db8bf-98bd-4311-99ad-f011d7d9607c)
+
 
 -Quiz
 
-![image](https://github.com/saishh8/learnovate-Elearn-final/assets/60099055/b6286731-7406-4f7e-ad69-99817a6cbabf)
+![image](https://github.com/saishh8/learnovate-Elearn-final/assets/60099055/b221ee1a-e8ee-40cc-95de-046269976202)
+
 
 
 
